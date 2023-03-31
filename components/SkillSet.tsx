@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NextSkill from "./NextSkill";
 import PositionBtn from "./PositionBtn";
+import SkillsList from "./SkillsList";
 import TurnBtn from "./TurnBtn";
 import TwistBtn from "./TwistBtn";
 
@@ -80,6 +81,9 @@ function SkillSet({}: Props) {
         skillsArray={skillsArray}
         setSkillsArray={setSkillsArray}
       />
+      <div className="w-screen  grid place-items-center">
+        <SkillsList skillsArray={skillsArray} setSkillsArray={setSkillsArray} />
+      </div>
     </div>
   );
 }
