@@ -18,7 +18,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-screen flex flex-col items-center justify-center gap-10 ">
+      <main className=" flex flex-col items-center justify-center gap-10 py-12 px-4">
         <h1>let&apos;s begin a new routine:</h1>
         <SkillSet/>
 

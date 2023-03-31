@@ -1,20 +1,21 @@
 import React from "react";
+import DifficultyCalculator from "./DifficultyCalculator";
 
 type Props = {
   skillsArray: [{}];
-  setSkillsArray:Function
+  setSkillsArray: Function;
 };
 
-function SkillsList({ skillsArray , setSkillsArray}: Props) {
+function SkillsList({ skillsArray, setSkillsArray }: Props) {
   return (
-    <ul className="w- flex flex-col items-start justify-center gap-4">
-      {skillsArray.length > 1  &&
+    <ul className=" flex flex-col items-start justify-center gap-4 ">
+      {skillsArray.length > 1 &&
         skillsArray.map((item: any, i: number) => (
-          <li key={i}>
-            {item.numericSkills} {item.position}
+          <li key={i} className="flex items-center justify-center gap-4">
+            <span>{item.numericSkills}</span> <span>{item.position}</span>
+            <DifficultyCalculator numericValue={item.numericSkills} position={item.position}/>
           </li>
         ))}
-        {skillsArray.length > 10 && <li> skills max limit is 10  <button onClick={()=>{setSkillsArray([{}])}}>reset ?</button></li>}
     </ul>
   );
 }
