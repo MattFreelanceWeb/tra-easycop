@@ -1,46 +1,45 @@
 import React, { useEffect, useState } from "react";
 
-type Props = {};
+type Props = {
+  turnNumber: number;
+  setTurnNumber: Function;
+  setTurnNumericValue: Function;
+};
 
-function TurnBtn({}: Props) {
-  const [turnNumber, setTurnNumber] = useState<number>(0);
-
-  let incrementNumber = () => {
-    if(turnNumber >= 4){
-      return 4
+function TurnBtn({ turnNumber, setTurnNumber, setTurnNumericValue }: Props) {
+  const incrementTurn = () => {
+    if (turnNumber >= 4) {
+      setTurnNumber(4)
+    } else {
+      setTurnNumber(turnNumber + 1 );
     }
-    setTurnNumber(turnNumber + 1)
-  }
 
-  let numericTurn = (turnNumber: number) => {
-    switch (turnNumber) {
-      case 0:
-        console.log("no turn");
-        break;
-      case 1:
-        console.log('40')
-        break
-      case 2:
-        console.log('800')
-        break
-      case 3:
-        console.log('12000')
-        break
-      case 4 :
-        console.log('160000')
-    }
   };
 
   useEffect(() => {
-    numericTurn(turnNumber)
+
+    switch (turnNumber) {
+      case 0:
+        setTurnNumericValue(0);
+        break;
+      case 1:
+        setTurnNumericValue(40)
+        break
+      case 2: 
+        setTurnNumericValue(800)
+        break
+      case 3:
+        setTurnNumericValue(12000)
+        break
+      case 4:
+        setTurnNumericValue(160000)
+    }
+
   }, [turnNumber])
   
-
   return (
     <button
-      onClick={() => {
-        incrementNumber();
-      }}
+      onClick={() => {incrementTurn()}}
       className="w-40 h-40 border-2 grid place-items-center"
     >
       Turn
