@@ -62,7 +62,7 @@ function SkillSet({}: Props) {
           <div className="flex items-center justify-center gap-4 ">
             <PositionBtn title={"tuck"} setPosition={setPosition} />
             <PositionBtn title={"pike"} setPosition={setPosition} />
-            <PositionBtn title={"lay"} setPosition={setPosition} />
+            <PositionBtn title={"straight"} setPosition={setPosition} />
           </div>
           <div>NumericValue: {turnNumericValue + twistNumericValue}</div>
           <div>position: {position}</div>

@@ -12,7 +12,7 @@ function DifficultyCalculator({numericValue, position}: Props) {
         } else if(numericValue < 800){
 
             let bonus:number = 1
-            if(position === 'pike' || 'lay'){bonus = 2}
+            if(position === 'pike' || 'straight'){bonus = 2}
             if(position === 'tuck') {bonus = 1}
 
             let numberTurn:string | number = ''
@@ -28,7 +28,7 @@ function DifficultyCalculator({numericValue, position}: Props) {
         } else if(numericValue < 12000) {
 
             let bonus:number = 2
-            if(position === 'pike' || 'lay'){bonus = 4}
+            if(position === 'pike' || 'straight'){bonus = 4}
             if(position === 'tuck') {bonus = 2}
 
             let numberTurn:string | number = ''
@@ -44,7 +44,7 @@ function DifficultyCalculator({numericValue, position}: Props) {
         } else if (numericValue < 160000) {
             
             let bonus:number = 4
-            if(position === 'pike' || 'lay'){bonus = 7}
+            if(position === 'pike' || 'straight'){bonus = 7}
             if(position === 'tuck') {bonus = 4}
 
             let numberTurn:string | number = ''
@@ -62,7 +62,7 @@ function DifficultyCalculator({numericValue, position}: Props) {
         } else if(numericValue >= 160000) {
             
             let bonus:number = 6
-            if(position === 'pike' || 'lay'){bonus = 10}
+            if(position === 'pike' || 'straight'){bonus = 10}
             if(position === 'tuck') {bonus = 6}
 
             let numberTurn:string | number = ''
