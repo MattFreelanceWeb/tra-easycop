@@ -21,6 +21,7 @@ export default function Home() {
       <main className="h-screen flex flex-col items-center justify-center gap-10 ">
         <h1>let&apos;s begin a new routine:</h1>
         <SkillSet/>
+
       </main>
     </>
   );

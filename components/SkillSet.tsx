@@ -6,7 +6,7 @@ import TwistBtn from "./TwistBtn";
 type Props = {};
 
 function SkillSet({}: Props) {
-    
+
   const [turnNumber, setTurnNumber] = useState<number>(0);
   const [turnNumericValue, setTurnNumericValue] = useState<number>(0);
 
@@ -44,7 +44,6 @@ function SkillSet({}: Props) {
         />
       </div>
       <div>turnNumber: {turnNumber}</div>
-      <div>twistNumber: {twistNumber}</div>
       <div>NumericValue: {turnNumericValue + twistNumericValue}</div>
       <NextSkill
         twistNumber={twistNumber}

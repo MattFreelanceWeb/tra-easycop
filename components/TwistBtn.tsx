@@ -41,34 +41,53 @@ function TwistBtn({
     switch (turnNumber) {
       case 0:
         setTwistNumber(toggleCount);
-        console.log("twistnumber:", twistNumber);
+        console.log("twistTurnZéro:", twistNumber);
         setTwistNumericValue(twistNumber / 10);
         break;
       case 1:
         setTwistTurnOne(toggleCount - twistNumber);
         console.log("twistTurnOne:", twistTurnOne);
-        setTwistNumericValue(twistNumber / 10 + twistTurnOne);
+        setTwistNumericValue(twistNumber + twistTurnOne);
         break;
       case 2:
-        setTwistTurnTwo((toggleCount - twistTurnOne - twistNumber) * 10);
+        setTwistTurnTwo(toggleCount - twistTurnOne - twistNumber);
         console.log("twistturntwo:", twistTurnTwo);
-        setTwistNumericValue(twistTurnTwo + (twistNumber / 10 + twistTurnOne));
+        setTwistNumericValue(twistTurnTwo + (twistNumber + twistTurnOne) * 10);
         break;
       case 3:
         setTwistTurnThree(
-          (toggleCount - twistTurnTwo / 10 - twistTurnOne - twistNumber) * 100
+          toggleCount - twistTurnTwo - twistTurnOne - twistNumber
         );
         console.log("twistTurnThree:", twistTurnThree);
         setTwistNumericValue(
-          twistTurnThree + (twistTurnTwo + (twistNumber / 10 + twistTurnOne))
+          twistTurnThree +
+            (twistTurnTwo + (twistNumber + twistTurnOne) * 10) * 10
         );
         break;
       case 4:
-        setTwistTurnFour( (toggleCount - (twistTurnThree/100) - (twistTurnTwo/10) - twistTurnOne - twistNumber) * 1000)
-        setTwistNumericValue(twistTurnFour + (twistTurnThree + (twistTurnTwo + (twistNumber / 10 + twistTurnOne))))
+        setTwistTurnFour(
+          toggleCount -
+            twistTurnThree -
+            twistTurnTwo -
+            twistTurnOne -
+            twistNumber
+        );
+        console.log("twistTurnFour:", twistTurnFour);
+        setTwistNumericValue(
+          twistTurnFour +
+            (twistTurnThree +
+              (twistTurnTwo + (twistNumber + twistTurnOne) * 10) * 10) * 10)
         break;
     }
-  }, [toggleCount, twistNumber, twistTurnOne, twistTurnTwo, twistTurnThree ,twistTurnFour]);
+  }, [
+    turnNumber,
+    toggleCount,
+    twistNumber,
+    twistTurnOne,
+    twistTurnTwo,
+    twistTurnThree,
+    twistTurnFour,
+  ]);
 
   return (
     <button
