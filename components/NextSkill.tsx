@@ -57,8 +57,11 @@ function NextSkill({
       position
     }
 
-    skillsArray.push(skills)
-  
+    {/* ensure that you don't have an empty object in your array*/ }
+    if(numericSkills !== 0){
+      skillsArray.push(skills)
+    }
+
   }
 
   return (
