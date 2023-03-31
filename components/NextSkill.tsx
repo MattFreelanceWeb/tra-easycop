@@ -57,8 +57,8 @@ function NextSkill({
       position
     }
 
-    {/* ensure that you don't have an empty object in your array*/ }
-    if(numericSkills !== 0){
+    {/* ensure that you don't have an empty object in your array and that the cap is 10 skills*/ }
+    if(numericSkills !== 0 && skillsArray.length < 11){
       skillsArray.push(skills)
     }
 
