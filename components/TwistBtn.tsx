@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 type Props = {
+  toggleCount:number,
+  setToggleCount:Function,
   twistNumber: number;
   setTwistNumber: Function;
   twistTurnOne: number;
@@ -11,12 +13,13 @@ type Props = {
   setTwistTurnThree: Function;
   twistTurnFour: number;
   setTwistTurnFour: Function;
-  twistNumericValue: number;
   setTwistNumericValue: Function;
   turnNumber: number;
 };
 
 function TwistBtn({
+  toggleCount,
+  setToggleCount,
   twistNumber,
   setTwistNumber,
   twistTurnOne,
@@ -27,11 +30,9 @@ function TwistBtn({
   setTwistTurnThree,
   twistTurnFour,
   setTwistTurnFour,
-  twistNumericValue,
   setTwistNumericValue,
   turnNumber,
 }: Props) {
-  const [toggleCount, setToggleCount] = useState<number>(0);
 
   let incrementTwist = () => {
     setToggleCount(toggleCount + 1);

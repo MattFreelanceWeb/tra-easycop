@@ -1,18 +1,71 @@
 import React from "react";
 
 type Props = {
-  turnNumber: number;
+  setToggleCount:Function,
   setTurnNumber: Function;
   setTurnNumericValue: Function;
-  twistNumber: number;
   setTwistNumber: Function;
+  setTwistTurnOne: Function;
+  setTwistTurnTwo: Function;
+  setTwistTurnThree: Function;
+  setTwistTurnFour: Function;
   setTwistNumericValue: Function;
+  setPosition: Function;
+  position: string;
+  turnNumericValue: number;
+  twistNumericValue: number;
+  skillsArray:[{}],
+  setSkillsArray:Function
 };
 
-function NextSkill({}: Props) {
+function NextSkill({
+  setTurnNumber,
+  setTurnNumericValue,
+  setToggleCount,
+  setTwistNumber,
+  setTwistTurnOne,
+  setTwistTurnTwo,
+  setTwistTurnThree,
+  setTwistTurnFour,
+  setTwistNumericValue,
+  setPosition,
+  position,
+  turnNumericValue,
+  twistNumericValue,
+  skillsArray,
+  setSkillsArray
+}: Props) {
 
+  const reset = () =>{
+    setTurnNumber(0)
+    setTurnNumericValue(0)
+    setToggleCount(0)
+    setTwistNumber(0)
+    setTwistTurnOne(0)
+    setTwistTurnTwo(0)
+    setTwistTurnThree(0)
+    setTwistTurnFour(0)
+    setTwistNumericValue(0)
+    setPosition('')
+  }
 
-  return <button className="px-12 py-2 border-2" onClick={()=>{}}>NextSkill</button>;
+  const addSkills = () => {
+    let numericSkills:number = twistNumericValue + turnNumericValue
+
+    let skills:Object= {
+      numericSkills,
+      position
+    }
+
+    skillsArray.push(skills)
+  
+  }
+
+  return (
+    <button className="px-12 py-2 border-2" onClick={() => {addSkills(),reset()}}>
+      NextSkill
+    </button>
+  );
 }
 
 export default NextSkill;
