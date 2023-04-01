@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 type Props = {
   toggleCount:number,
@@ -34,32 +34,41 @@ function TwistBtn({
   turnNumber,
 }: Props) {
 
+  const btnTwistRef:any = useRef()
   let incrementTwist = () => {
     setToggleCount(toggleCount + 1);
   };
 
   useEffect(() => {
+    const handleKeyPress = (event:any) => {
+      if (event.key === 'z' || event.key === 'Z') {
+        btnTwistRef.current.click();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyPress);
+
     switch (turnNumber) {
       case 0:
         setTwistNumber(toggleCount);
-        console.log("twistTurnZéro:", twistNumber);
+        // console.log("twistTurnZéro:", twistNumber);
         setTwistNumericValue(twistNumber / 10);
         break;
       case 1:
         setTwistTurnOne(toggleCount - twistNumber);
-        console.log("twistTurnOne:", twistTurnOne);
+        // console.log("twistTurnOne:", twistTurnOne);
         setTwistNumericValue(twistNumber + twistTurnOne);
         break;
       case 2:
         setTwistTurnTwo(toggleCount - twistTurnOne - twistNumber);
-        console.log("twistturntwo:", twistTurnTwo);
+        // console.log("twistturntwo:", twistTurnTwo);
         setTwistNumericValue(twistTurnTwo + (twistNumber + twistTurnOne) * 10);
         break;
       case 3:
         setTwistTurnThree(
           toggleCount - twistTurnTwo - twistTurnOne - twistNumber
         );
-        console.log("twistTurnThree:", twistTurnThree);
+        // console.log("twistTurnThree:", twistTurnThree);
         setTwistNumericValue(
           twistTurnThree +
             (twistTurnTwo + (twistNumber + twistTurnOne) * 10) * 10
@@ -73,13 +82,16 @@ function TwistBtn({
             twistTurnOne -
             twistNumber
         );
-        console.log("twistTurnFour:", twistTurnFour);
+        // console.log("twistTurnFour:", twistTurnFour);
         setTwistNumericValue(
           twistTurnFour +
             (twistTurnThree +
               (twistTurnTwo + (twistNumber + twistTurnOne) * 10) * 10) * 10)
         break;
     }
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
   }, [
     turnNumber,
     toggleCount,
@@ -92,12 +104,14 @@ function TwistBtn({
 
   return (
     <button
+      ref={btnTwistRef}
       onClick={() => {
         incrementTwist();
       }}
       className="w-40 h-40 border-2 grid place-items-center"
     >
       Twist
+      <kbd className="bg-gray-300 px-2">Z</kbd>
     </button>
   );
 }

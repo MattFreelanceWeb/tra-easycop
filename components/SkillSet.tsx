@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import NextSkill from "./NextSkill";
 import PositionBtn from "./PositionBtn";
 import ResetArrayBtn from "./ResetArrayBtn";
@@ -32,6 +32,7 @@ function SkillSet({}: Props) {
   const [position, setPosition] = useState<string>("");
 
   const [skillsArray, setSkillsArray] = useState<[{}]>([{}]);
+
 
   return (
     <div className="w-screen flex flex-col items-center justify-center gap-10 md:h-[80vh] md:flex-row md:justify-around ">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 type Props = {
   setToggleCount:Function,
@@ -64,9 +64,25 @@ function NextSkill({
 
   }
 
+  const btnNextRef:any = useRef();
+
+  useEffect(() => {
+    const handleKeyPress = (event:any) => {
+      if (event.code === 'Space' ) {
+        btnNextRef.current.click();
+      }
+    };
+    document.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
+
   return (
-    <button className="px-12 py-2 border-2" onClick={() => {addSkills(),reset()}}>
+    <button ref={btnNextRef} className="px-12 py-2 border-2 grid place-items-center" onClick={() => {addSkills(),reset()}}>
       NextSkill
+      <kbd className="bg-gray-300 px-2">(space)</kbd>
     </button>
   );
 }

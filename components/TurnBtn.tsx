@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 type Props = {
   turnNumber: number;
@@ -7,6 +7,9 @@ type Props = {
 };
 
 function TurnBtn({ turnNumber, setTurnNumber, setTurnNumericValue }: Props) {
+
+  const btnTurnRef:any = useRef()
+
   const incrementTurn = () => {
     if (turnNumber >= 4) {
       setTurnNumber(4)
@@ -17,6 +20,13 @@ function TurnBtn({ turnNumber, setTurnNumber, setTurnNumericValue }: Props) {
   };
 
   useEffect(() => {
+    const handleKeyPress = (event:any) => {
+      if (event.key === 'a' || event.key === 'A') {
+        btnTurnRef.current.click();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyPress);
 
     switch (turnNumber) {
       case 0:
@@ -34,15 +44,20 @@ function TurnBtn({ turnNumber, setTurnNumber, setTurnNumericValue }: Props) {
       case 4:
         setTurnNumericValue(160000)
     }
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
 
   }, [turnNumber])
   
   return (
     <button
+    ref={btnTurnRef}
       onClick={() => {incrementTurn()}}
       className="w-40 h-40 border-2 grid place-items-center"
     >
       Turn
+      <kbd className="bg-gray-300 px-2">A</kbd>
     </button>
   );
 }
