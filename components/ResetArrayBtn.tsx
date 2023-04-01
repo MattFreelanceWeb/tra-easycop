@@ -13,7 +13,7 @@ function ResetArrayBtn({setSkillsArray}: Props) {
 
 
   return (
-    <button onClick={()=>{warning()}}>
+    <button onClick={()=>{warning()}} className='px-12 py-2 bg-red-500 text-white rounded-lg'>
         RESET the routine
     </button>
   )

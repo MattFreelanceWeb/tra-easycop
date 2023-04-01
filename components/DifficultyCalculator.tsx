@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode} from 'react'
 
-type Props = {numericValue:number,position:string}
+type Props = {numericValue:number,position:string, difficultyArray:any[]}
 
-function DifficultyCalculator({numericValue, position}: Props) {
+function DifficultyCalculator({numericValue, position, difficultyArray}: Props) {
 
     let calc = (numericValue:number , position:string) => {
         let difficulty:number | ReactNode 
@@ -87,7 +87,7 @@ function DifficultyCalculator({numericValue, position}: Props) {
     }
 
   return (
-    <div>{calc( numericValue, position)}</div>
+    <div>{calc( numericValue, position) }</div>
   )
 }
 

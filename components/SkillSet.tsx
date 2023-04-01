@@ -1,6 +1,7 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import NextSkill from "./NextSkill";
 import PositionBtn from "./PositionBtn";
+import ResetActualSkill from "./ResetActualSkill";
 import ResetArrayBtn from "./ResetArrayBtn";
 import SkillsList from "./SkillsList";
 import TurnBtn from "./TurnBtn";
@@ -33,40 +34,40 @@ function SkillSet({}: Props) {
 
   const [skillsArray, setSkillsArray] = useState<[{}]>([{}]);
 
-
   return (
     <div className="w-screen flex flex-col items-center justify-center gap-10 md:h-[80vh] md:flex-row md:justify-around ">
-        <div className=" flex flex-col items-center justify-center gap-4">
-          <div className="flex items-center justify-center gap-4 ">
-            <TurnBtn
-              turnNumber={turnNumber}
-              setTurnNumber={setTurnNumber}
-              setTurnNumericValue={setTurnNumericValue}
-            />
-            <TwistBtn
-              toggleCount={toggleCount}
-              setToggleCount={setToggleCount}
-              twistNumber={twistNumber}
-              setTwistNumber={setTwistNumber}
-              twistTurnOne={twistTurnOne}
-              setTwistTurnOne={setTwistTurnOne}
-              twistTurnTwo={twistTurnTwo}
-              setTwistTurnTwo={setTwistTurnTwo}
-              twistTurnThree={twistTurnThree}
-              setTwistTurnThree={setTwistTurnThree}
-              twistTurnFour={twistTurnFour}
-              setTwistTurnFour={setTwistTurnFour}
-              setTwistNumericValue={setTwistNumericValue}
-              turnNumber={turnNumber}
-            />
-          </div>
-          <div className="flex items-center justify-center gap-4 ">
-            <PositionBtn title={"tuck"} setPosition={setPosition} />
-            <PositionBtn title={"pike"} setPosition={setPosition} />
-            <PositionBtn title={"straight"} setPosition={setPosition} />
-          </div>
-          <div>NumericValue: {turnNumericValue + twistNumericValue}</div>
-          <div>position: {position}</div>
+      <div className=" flex flex-col items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-4 ">
+          <TurnBtn
+            turnNumber={turnNumber}
+            setTurnNumber={setTurnNumber}
+            setTurnNumericValue={setTurnNumericValue}
+          />
+          <TwistBtn
+            toggleCount={toggleCount}
+            setToggleCount={setToggleCount}
+            twistNumber={twistNumber}
+            setTwistNumber={setTwistNumber}
+            twistTurnOne={twistTurnOne}
+            setTwistTurnOne={setTwistTurnOne}
+            twistTurnTwo={twistTurnTwo}
+            setTwistTurnTwo={setTwistTurnTwo}
+            twistTurnThree={twistTurnThree}
+            setTwistTurnThree={setTwistTurnThree}
+            twistTurnFour={twistTurnFour}
+            setTwistTurnFour={setTwistTurnFour}
+            setTwistNumericValue={setTwistNumericValue}
+            turnNumber={turnNumber}
+          />
+        </div>
+        <div className="flex items-center justify-center gap-4 ">
+          <PositionBtn title={"tuck"} setPosition={setPosition} />
+          <PositionBtn title={"pike"} setPosition={setPosition} />
+          <PositionBtn title={"straight"} setPosition={setPosition} />
+        </div>
+        <div>NumericValue: {turnNumericValue + twistNumericValue}</div>
+        <div>position: {position}</div>
+        <div className="flex gap-4">
           <NextSkill
             setToggleCount={setToggleCount}
             setTurnNumber={setTurnNumber}
@@ -84,7 +85,20 @@ function SkillSet({}: Props) {
             skillsArray={skillsArray}
             setSkillsArray={setSkillsArray}
           />
+          <ResetActualSkill
+            setToggleCount={setToggleCount}
+            setTurnNumber={setTurnNumber}
+            setTurnNumericValue={setTurnNumericValue}
+            setTwistNumber={setTwistNumber}
+            setTwistTurnOne={setTwistTurnOne}
+            setTwistTurnTwo={setTwistTurnTwo}
+            setTwistTurnThree={setTwistTurnThree}
+            setTwistTurnFour={setTwistTurnFour}
+            setTwistNumericValue={setTwistNumericValue}
+            setPosition={setPosition}
+          />
         </div>
+      </div>
       <div className=" flex flex-col items-center justify-center gap-8">
         <SkillsList skillsArray={skillsArray} setSkillsArray={setSkillsArray} />
         <ResetArrayBtn setSkillsArray={setSkillsArray} />

@@ -20,7 +20,6 @@ function PositionBtn({title, setPosition}: Props) {
   const btnRef:any = useRef()
 
   useEffect(() => {
-    console.log(btnRef.current)
     const handleKeyPress = (event:any) => {
       if (event.key === setKey(title) ) {
         btnRef.current.click();
@@ -32,7 +31,7 @@ function PositionBtn({title, setPosition}: Props) {
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     }
-  }, [])
+  }, [title])
   
 
   return (
