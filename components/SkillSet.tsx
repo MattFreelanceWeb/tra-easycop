@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NextSkill from "./NextSkill";
 import PositionBtn from "./PositionBtn";
+import QuarterTurnBtn from "./QuarterTurnBtn";
 import ResetActualSkill from "./ResetActualSkill";
 import ResetArrayBtn from "./ResetArrayBtn";
 import SkillsList from "./SkillsList";
@@ -26,6 +27,8 @@ function SkillSet({}: Props) {
   const [twistTurnThree, setTwistTurnThree] = useState<number>(0);
   const [twistTurnFour, setTwistTurnFour] = useState<number>(0);
   const [twistNumericValue, setTwistNumericValue] = useState<number>(0);
+  const [quarterTurnNumber, setQuarterTurnNumber] = useState<number>(0);
+  const [quarterTurnNumericValue, setQuarterTurnNumericValue] = useState<number>(0)
 
   {
     /* state manage the position a skill */
@@ -59,13 +62,20 @@ function SkillSet({}: Props) {
             setTwistNumericValue={setTwistNumericValue}
             turnNumber={turnNumber}
           />
+          <QuarterTurnBtn
+            turnNumber={turnNumber}
+            setTurnNumber={setTurnNumber}
+            quarterTurnNumber={quarterTurnNumber} setQuarterTurnNumber={setQuarterTurnNumber}
+            quarterTurnNumericValue={quarterTurnNumericValue}
+            setQuarterTurnNumericValue={setQuarterTurnNumericValue}
+          />
         </div>
         <div className="flex items-center justify-center gap-4 ">
           <PositionBtn title={"tuck"} setPosition={setPosition} />
           <PositionBtn title={"pike"} setPosition={setPosition} />
           <PositionBtn title={"straight"} setPosition={setPosition} />
         </div>
-        <div>NumericValue: {turnNumericValue + twistNumericValue}</div>
+        <div>NumericValue: {turnNumericValue + twistNumericValue + quarterTurnNumericValue}</div>
         <div>position: {position}</div>
         <div className="flex gap-4">
           <NextSkill
@@ -79,9 +89,12 @@ function SkillSet({}: Props) {
             setTwistTurnFour={setTwistTurnFour}
             setTwistNumericValue={setTwistNumericValue}
             setPosition={setPosition}
+            setQuarterNumericValue={setQuarterTurnNumericValue}
+            setQuarterTurnNumber={setQuarterTurnNumber}
             position={position}
             turnNumericValue={turnNumericValue}
             twistNumericValue={twistNumericValue}
+            quarterTurnNumericValue={quarterTurnNumericValue}
             skillsArray={skillsArray}
             setSkillsArray={setSkillsArray}
           />
@@ -96,6 +109,8 @@ function SkillSet({}: Props) {
             setTwistTurnFour={setTwistTurnFour}
             setTwistNumericValue={setTwistNumericValue}
             setPosition={setPosition}
+            setQuarterNumericValue={setQuarterTurnNumericValue}
+            setQuarterTurnNumber={setQuarterTurnNumber}
           />
         </div>
       </div>

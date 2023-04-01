@@ -10,6 +10,8 @@ type Props = {
   setTwistTurnThree: Function;
   setTwistTurnFour: Function;
   setTwistNumericValue: Function;
+  setQuarterTurnNumber:Function;
+  setQuarterNumericValue:Function
   setPosition: Function;
 };
 
@@ -24,6 +26,8 @@ function ResetActualSkill({
   setTwistTurnFour,
   setTwistNumericValue,
   setPosition,
+  setQuarterTurnNumber,
+  setQuarterNumericValue
 }: Props) {
   const btnResetRef:any = useRef();
 
@@ -37,6 +41,8 @@ function ResetActualSkill({
     setTwistTurnThree(0);
     setTwistTurnFour(0);
     setTwistNumericValue(0);
+    setQuarterTurnNumber(0)
+    setQuarterNumericValue(0)
     setPosition("");
   };
 

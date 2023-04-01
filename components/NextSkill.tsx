@@ -11,9 +11,12 @@ type Props = {
   setTwistTurnFour: Function;
   setTwistNumericValue: Function;
   setPosition: Function;
+  setQuarterTurnNumber:Function;
+  setQuarterNumericValue:Function
   position: string;
   turnNumericValue: number;
   twistNumericValue: number;
+  quarterTurnNumericValue:number
   skillsArray:[{}],
   setSkillsArray:Function
 };
@@ -29,9 +32,12 @@ function NextSkill({
   setTwistTurnFour,
   setTwistNumericValue,
   setPosition,
+  setQuarterTurnNumber,
+  setQuarterNumericValue,
   position,
   turnNumericValue,
   twistNumericValue,
+  quarterTurnNumericValue,
   skillsArray,
   setSkillsArray
 }: Props) {
@@ -46,6 +52,8 @@ function NextSkill({
     setTwistTurnThree(0)
     setTwistTurnFour(0)
     setTwistNumericValue(0)
+    setQuarterTurnNumber(0)
+    setQuarterNumericValue(0)
     setPosition('')
   }
 
@@ -132,7 +140,7 @@ function NextSkill({
 }
 
   const addSkills = () => {
-    let numericSkills:number = twistNumericValue + turnNumericValue
+    let numericSkills:number = twistNumericValue + turnNumericValue + quarterTurnNumericValue
 
     let skills:Object= {
       numericSkills,
