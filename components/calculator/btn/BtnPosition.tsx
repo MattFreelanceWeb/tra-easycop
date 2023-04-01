@@ -1,19 +1,16 @@
 import React, { useEffect, useRef } from "react";
 
-type Props = { title: string; setKey: string, count:number, setCount:Function};
+type Props = { title: string; setPosition: Function; setKey: string };
 
-function Btn({ title, setKey, count, setCount }: Props) {
-  {/* get the dom element */ }  
+function BtnPosition({ title, setPosition, setKey }: Props) {
   const btnRef: any = useRef();
 
-  const incrementCount = () => {
-    setCount(count + 1)
-  }
-  
   useEffect(() => {
-    {/* on the keypress define in the prop setKey lunch the onClick event*/ }
+    {
+      /* on the keypress define in the prop setKey lunch the onClick event*/
+    }
     const handleKeyPress = (event: any) => {
-      if (event.key === setKey ) {
+      if (event.key === setKey) {
         btnRef.current.click();
       }
     };
@@ -24,18 +21,18 @@ function Btn({ title, setKey, count, setCount }: Props) {
     };
   }, [setKey]);
 
-
   return (
     <button
       ref={btnRef}
       onClick={() => {
-        incrementCount()
+        setPosition(title);
       }}
-      className="w-40 h-40 border-2"
+      className='w-20 h-20 border-2 flex flex-col justify-center items-center gap-1'
     >
-      {title}
+      <span>{title}</span>
+      <kbd>{setKey}</kbd>
     </button>
   );
 }
 
-export default Btn;
+export default BtnPosition;
