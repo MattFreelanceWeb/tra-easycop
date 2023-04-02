@@ -1,9 +1,15 @@
 import React, { useEffect, useRef } from "react";
 
-type Props = { title: string; setPosition: Function; setKey: string };
+type Props = { setKey: string; title: string ,skill:string, setSkill:Function};
 
-function BtnPosition({ title, setPosition, setKey }: Props) {
+function BtnTel({ setKey, title ,skill,setSkill}: Props) {
   const btnRef: any = useRef();
+
+  const setUpSkill = () =>{
+    if(skill.length < 6){
+        setSkill(skill+title)
+    }
+  }
 
   useEffect(() => {
     {
@@ -20,19 +26,15 @@ function BtnPosition({ title, setPosition, setKey }: Props) {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, [setKey]);
-
   return (
     <button
       ref={btnRef}
-      onClick={() => {
-        setPosition(title);
-      }}
-      className='w-16 h-16 border-2 flex flex-col justify-center items-center gap-1 rounded-lg'
+      onClick={()=>{setUpSkill()}}
+      className="flex flex-col items-center justify-center gap-2 border-2 w-16 h-16 rounded-lg"
     >
-      <span className="capitalize">{title}</span>
-      <kbd className="uppercase">{setKey}</kbd>
+      <span>{title}</span>
     </button>
   );
 }
 
-export default BtnPosition;
+export default BtnTel;

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 
-type Props = { title: string; setPosition: Function; setKey: string };
+type Props = { title: string; setKey: string; setSkill: Function, setPosition:Function };
 
-function BtnPosition({ title, setPosition, setKey }: Props) {
+function BtnTelReset({ title, setKey, setSkill, setPosition }: Props) {
   const btnRef: any = useRef();
 
   useEffect(() => {
@@ -20,19 +20,12 @@ function BtnPosition({ title, setPosition, setKey }: Props) {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, [setKey]);
-
   return (
-    <button
-      ref={btnRef}
-      onClick={() => {
-        setPosition(title);
-      }}
-      className='w-16 h-16 border-2 flex flex-col justify-center items-center gap-1 rounded-lg'
-    >
-      <span className="capitalize">{title}</span>
-      <kbd className="uppercase">{setKey}</kbd>
+    <button ref={btnRef} onClick={()=>{setSkill(''), setPosition('')}} className="flex flex-col items-center justify-center gap-1 border-2 w-16 h-16 rounded-lg">
+      <span>{title}</span>
+      <span>{setKey}</span>
     </button>
   );
 }
 
-export default BtnPosition;
+export default BtnTelReset;

@@ -10,7 +10,6 @@ export const calc = (numericValue: number, position: string) => {
   let numberString: string[] = numericValueString.split("");
 
   if (numericValue < 40) {
-    console.log("numeric value < 40");
     difficulty = numericValue;
 
     if (numberString.length > 1) {
@@ -20,20 +19,16 @@ export const calc = (numericValue: number, position: string) => {
       difficulty = numberTurn + numberTwistTurnOne;
     }
   } else if (numericValue < 800) {
-    console.log("numeric value < 800");
     numberTurn = Number(numberString[0]);
     numberTwistTurnOne = Number(numberString[1]);
     bonus = 1;
-
     if (position === "pike" || "straight") {
-      console.log(position);
       bonus = 2;
     }
     if (position === "tuck") {
       bonus = 1;
     }
     if (numberTwistTurnOne > 0) {
-      console.log("bonus = 1");
       bonus = 1;
     }
 
@@ -41,13 +36,6 @@ export const calc = (numericValue: number, position: string) => {
 
     if (numberString.length > 2) {
       numberTwistTurnTwo = Number(numberString[2]);
-      console.log(
-        "length > 2 |",
-        numberTurn,
-        numberTwistTurnOne,
-        numberTwistTurnTwo,
-        bonus
-      );
       difficulty = numberTurn + numberTwistTurnOne + numberTwistTurnTwo + bonus;
     }
   } else if (numericValue < 12000) {
