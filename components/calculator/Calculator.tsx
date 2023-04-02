@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import BtnCount from "./btn/BtnCount";
 import BtnPosition from "./btn/BtnPosition";
 import BtnResetSkill from "./btn/BtnResetSkill";
+import { calc } from "@/utils/function/lib";
 
 type Props = {};
 
@@ -9,6 +10,7 @@ function Calculator({}: Props) {
   const [quarterTurnCount, setQuarterTurnCount] = useState<number>(0)
   const [halfTwistCount, setHalfTwistCount] = useState<number>(0)
   const [position, setPosition] = useState('tuck')
+  const [numericValue, setnumericValue] = useState<number>(150000)
 
   return (
     <>
@@ -24,8 +26,9 @@ function Calculator({}: Props) {
         <BtnPosition title={'straigt'} setKey={'3'} setPosition={setPosition}/>
       </div>
       <div>quarter turn count : {quarterTurnCount}</div> 
-      <div>half twist count :{halfTwistCount}</div>
+      <div>half twist count : {halfTwistCount}</div>
       <div> position : {position}</div>
+      <div>difficulty :  {calc(numericValue, position) }</div>
       <div>
         <BtnResetSkill title='reset' setKey="0" setQuarterTurnCount={setQuarterTurnCount} setHalfTwistCount={setHalfTwistCount} setPosition={setPosition} />
       </div>
