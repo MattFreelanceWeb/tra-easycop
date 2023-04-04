@@ -21,9 +21,9 @@ function BtnTelReset({ title, setKey, setSkill, setPosition }: Props) {
     };
   }, [setKey]);
   return (
-    <button ref={btnRef} onClick={()=>{setSkill(''), setPosition('')}} className="flex flex-col items-center justify-center gap-1 border-2 w-16 h-16 rounded-lg">
+    <button ref={btnRef} onClick={()=>{setSkill(''), setPosition('')}} className="flex flex-col items-center justify-center gap-1  rounded-lg bg-gradient-to-r from-rose-500 via-red-400 to-red-500 text-white backdrop-blur-lg shadow-md ">
       <span>{title}</span>
-      <span>{setKey}</span>
+      <span className="hidden md:block">{setKey}</span>
     </button>
   );
 }

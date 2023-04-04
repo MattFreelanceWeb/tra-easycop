@@ -7,7 +7,7 @@ function BtnTel({ setKey, title ,skill,setSkill}: Props) {
 
   const setUpSkill = () =>{
     if(skill.length < 6){
-        setSkill(skill+title)
+        setSkill((skill+title))
     }
   }
 
@@ -30,7 +30,7 @@ function BtnTel({ setKey, title ,skill,setSkill}: Props) {
     <button
       ref={btnRef}
       onClick={()=>{setUpSkill()}}
-      className="flex flex-col items-center justify-center gap-2 border-2 w-16 h-16 rounded-lg"
+      className="flex flex-col items-center justify-center gap-2 rounded-lg shadow-md backdrop-blur-lg bg-white/30 "
     >
       <span>{title}</span>
     </button>

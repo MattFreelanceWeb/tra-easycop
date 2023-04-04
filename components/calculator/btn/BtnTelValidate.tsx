@@ -1,35 +1,76 @@
-import React, { useEffect, useRef } from 'react'
+import { calc } from "@/utils/function/calc";
+import React, { useEffect, useRef } from "react";
 
 type Props = {
-    title:string
-    setKey:string
-    skill:string
-    setSkill:Function
-    position:string
-    setPosition:Function
-}
+  title: string;
+  setKey: string;
+  skill: string;
+  setSkill: Function;
+  position: string;
+  setPosition: Function;
+  routine: [{}];
+  setRoutine: Function;
+};
 
-function BtnTelValidate({title,setKey, skill, setSkill, position, setPosition}: Props) {
-    const btnRef: any = useRef();
+function BtnTelValidate({
+  title,
+  setKey,
+  skill,
+  setSkill,
+  position,
+  setPosition,
+  routine,
+  setRoutine,
+}: Props) {
+  const btnRef: any = useRef();
 
-    useEffect(() => {
-      {
-        /* on the keypress define in the prop setKey lunch the onClick event*/
+  let Skill = {
+    skill,
+    position,
+    difficulty: calc(Number(skill), position),
+  };
+
+  const reset = () =>{
+    setSkill('')
+    setPosition('')
+  }
+
+  const addRoutine = () => {
+    if(routine.length < 11){
+      routine.push(Skill);
+      reset()
+    }
+
+  };
+
+  useEffect(() => {
+    {
+      /* on the keypress define in the prop setKey lunch the onClick event*/
+    }
+    const handleKeyPress = (event: any) => {
+      if (event.key === setKey) {
+        btnRef.current.click();
       }
-      const handleKeyPress = (event: any) => {
-        if (event.key === setKey) {
-          btnRef.current.click();
-        }
-      };
-  
-      document.addEventListener("keydown", handleKeyPress);
-      return () => {
-        document.removeEventListener("keydown", handleKeyPress);
-      };
-    }, [setKey]);
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [setKey]);
   return (
-    <button ref={btnRef} className=' border-2 rounded-lg' onClick={()=>{console.log(skill +' ' + position)}}> <span className=''>{title}</span></button>
-  )
+    <button
+      ref={btnRef}
+      className=" flex flex-col items-center justify-center  rounded-lg bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 text-white backdrop-blur-lg shadow-md "
+      onClick={() => {
+        addRoutine();
+        console.log(routine)
+      }}
+    >
+      {" "}
+      <span className="">{title}</span>
+    </button>
+  );
 }
 
-export default BtnTelValidate
+export default BtnTelValidate;

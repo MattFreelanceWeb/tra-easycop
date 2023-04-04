@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 
-type Props = { title: string; setPosition: Function; setKey: string };
+type Props = { title: string; setPosition: Function; setKey: string, className?:string };
 
-function BtnPosition({ title, setPosition, setKey }: Props) {
+function BtnPosition({ title, setPosition, setKey, className }: Props) {
   const btnRef: any = useRef();
 
   useEffect(() => {
@@ -27,10 +27,10 @@ function BtnPosition({ title, setPosition, setKey }: Props) {
       onClick={() => {
         setPosition(title);
       }}
-      className='w-16 h-16 border-2 flex flex-col justify-center items-center gap-1 rounded-lg'
+      className={`flex flex-col justify-center items-center gap-1 rounded-lg text-white bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 backdrop-blur-lg shadow-md `}
     >
-      <span className="capitalize">{title}</span>
-      <kbd className="uppercase">{setKey}</kbd>
+      <span className="">{title}</span>
+      <kbd className="hidden md:block">{setKey}</kbd>
     </button>
   );
 }

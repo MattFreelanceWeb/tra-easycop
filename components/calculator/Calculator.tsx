@@ -1,8 +1,8 @@
+import { calc } from "@/utils/function/calc";
 import React, { useState } from "react";
 import BtnCount from "./btn/BtnCount";
 import BtnPosition from "./btn/BtnPosition";
 import BtnResetSkill from "./btn/BtnResetSkill";
-import { calc } from "@/utils/function/lib";
 
 type Props = {};
 
