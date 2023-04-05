@@ -34,11 +34,10 @@ function BtnTelValidate({
   }
 
   const addRoutine = () => {
-    if(routine.length < 11){
+    if(routine.length < 10){
       routine.push(Skill);
       reset()
     }
-
   };
 
   useEffect(() => {
@@ -62,7 +61,6 @@ function BtnTelValidate({
       className="w-full h-full flex flex-col items-center justify-center  rounded-lg bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 text-white backdrop-blur-lg shadow-md "
       onClick={() => {
         addRoutine();
-        console.log(routine)
       }}
     >
       {" "}

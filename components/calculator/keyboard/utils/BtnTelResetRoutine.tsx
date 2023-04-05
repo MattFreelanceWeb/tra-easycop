@@ -12,7 +12,7 @@ function BtnTelResetRoutine({ title ,setKey,setRoutine, setPosition, setSkill}: 
   const btnRef:any = useRef()
   const reset = () => {
     if (window.confirm("WARNING ! you are about to reset the routine")) {
-      setRoutine([{}])
+      setRoutine([])
       setPosition('')
       setSkill('')
     }
