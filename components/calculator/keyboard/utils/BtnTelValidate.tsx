@@ -1,4 +1,5 @@
 import { calc } from "@/utils/function/calc";
+import { isDuplicateObject } from "@/utils/function/isDuplicateObject";
 import React, { useEffect, useRef } from "react";
 
 type Props = {
@@ -35,6 +36,9 @@ function BtnTelValidate({
 
   const addRoutine = () => {
     if(routine.length < 10){
+      if(isDuplicateObject(Skill,routine)){
+        Skill.difficulty = 0
+      }
       routine.push(Skill);
       reset()
     }
