@@ -1,27 +1,9 @@
 import React, { useEffect, useRef } from "react";
 
-type Props = {
-  title: string;
-  setKey: string;
-  setQuarterTurnCount: Function;
-  setHalfTwistCount: Function;
-  setPosition:Function
-};
+type Props = { title: string; setPosition: Function; setKey: string, className?:string };
 
-function BtnResetSkill({
-  title,
-  setKey,
-  setQuarterTurnCount,
-  setHalfTwistCount,
-  setPosition
-}: Props) {
+function BtnPosition({ title, setPosition, setKey, className }: Props) {
   const btnRef: any = useRef();
-
-  const reset = () => {
-    setHalfTwistCount(0)
-    setQuarterTurnCount(0)
-    setPosition('tuck')
-  };
 
   useEffect(() => {
     {
@@ -43,14 +25,14 @@ function BtnResetSkill({
     <button
       ref={btnRef}
       onClick={() => {
-        reset();
+        setPosition(title);
       }}
-      className='px-12 py-2 grid place-items-center gap-2 border-2'
+      className={`w-full h-full flex flex-col justify-center items-center gap-1 rounded-lg text-white bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 backdrop-blur-lg shadow-md `}
     >
-      <span>{title}</span>
-      <kbd>{setKey}</kbd>
+      <span className="">{title}</span>
+      <kbd className="hidden md:block">{setKey}</kbd>
     </button>
   );
 }
 
-export default BtnResetSkill;
+export default BtnPosition;

@@ -38,7 +38,7 @@ function BtnTelResetRoutine({ title ,setKey,setRoutine, setPosition, setSkill}: 
       onClick={() => {
         reset();
       }}
-      className="w-full py-2 flex flex-col items-center justify-center gap-1  rounded-lg bg-gradient-to-r from-rose-500 via-red-400 to-red-500 text-white backdrop-blur-lg shadow-md "
+      className="w-full h-full flex flex-col items-center justify-center gap-1  rounded-lg bg-gradient-to-r from-rose-500 via-red-400 to-red-500 text-white backdrop-blur-lg shadow-md "
     >
       <span>{title}</span>
       <kbd className="hidden md:block">{setKey}</kbd>

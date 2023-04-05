@@ -1,15 +1,9 @@
 import React, { useEffect, useRef } from "react";
 
-type Props = { setKey: string; title: string ,skill:string, setSkill:Function};
+type Props = { title: string; setKey: string; setSkill: Function, setPosition:Function };
 
-function BtnTel({ setKey, title ,skill,setSkill}: Props) {
+function BtnTelReset({ title, setKey, setSkill, setPosition }: Props) {
   const btnRef: any = useRef();
-
-  const setUpSkill = () =>{
-    if(skill.length < 6){
-        setSkill((skill+title))
-    }
-  }
 
   useEffect(() => {
     {
@@ -27,14 +21,11 @@ function BtnTel({ setKey, title ,skill,setSkill}: Props) {
     };
   }, [setKey]);
   return (
-    <button
-      ref={btnRef}
-      onClick={()=>{setUpSkill()}}
-      className="flex flex-col items-center justify-center gap-2 rounded-lg shadow-md backdrop-blur-lg bg-white/30 "
-    >
+    <button ref={btnRef} onClick={()=>{setSkill(''), setPosition('')}} className="w-full h-full flex flex-col items-center justify-center gap-1  rounded-lg bg-gradient-to-r from-rose-500 via-red-400 to-red-500 text-white backdrop-blur-lg shadow-md ">
       <span>{title}</span>
+      <span className="hidden md:block">{setKey}</span>
     </button>
   );
 }
 
-export default BtnTel;
+export default BtnTelReset;

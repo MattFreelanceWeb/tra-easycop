@@ -8,8 +8,7 @@ type Props = {
   setSkill: Function;
   position: string;
   setPosition: Function;
-  routine: [{}];
-  setRoutine: Function;
+  routine: any[];
 };
 
 function BtnTelValidate({
@@ -20,7 +19,6 @@ function BtnTelValidate({
   position,
   setPosition,
   routine,
-  setRoutine,
 }: Props) {
   const btnRef: any = useRef();
 
@@ -61,7 +59,7 @@ function BtnTelValidate({
   return (
     <button
       ref={btnRef}
-      className=" flex flex-col items-center justify-center  rounded-lg bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 text-white backdrop-blur-lg shadow-md "
+      className="w-full h-full flex flex-col items-center justify-center  rounded-lg bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 text-white backdrop-blur-lg shadow-md "
       onClick={() => {
         addRoutine();
         console.log(routine)
