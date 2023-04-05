@@ -4,23 +4,18 @@ import TotalRoutine from "./utils/TotalRoutine";
 
 type Props = {
   routine: any[];
-  setRoutine: Function;
   skill: string;
-  setSkill: Function;
   position: string;
-  setPosition: Function;
+
 };
 
 function ScreenTel({
   routine,
-  setRoutine,
   skill,
-  setSkill,
   position,
-  setPosition,
 }: Props) {
   return (
-    <div className="w-full  rounded-lg p-4 flex flex-col items-center text-xl capitalize gap-4 sm:h-full">
+    <div className="w-full rounded-lg p-4 grid grid-rows-2 text-xl capitalize gap-4">
         <ActualSkill position= {position} skill = {skill}/>
         <TotalRoutine routine={routine} /> 
     </div>

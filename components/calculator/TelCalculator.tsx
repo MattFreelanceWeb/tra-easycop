@@ -16,9 +16,6 @@ function TelCalculator({}: Props) {
         routine={routine}
         skill={skill}
         position={position}
-        setRoutine={setRoutine}
-        setSkill={setSkill}
-        setPosition={setPosition}
       />
       <KeyboardTel
         routine={routine}
