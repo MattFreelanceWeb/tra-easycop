@@ -5,7 +5,7 @@ type Props = {routine:any[]}
 
 function TotalRoutine({routine}: Props) {
   return (
-    <div className="flex items-center justify-center gap-10 p-4 ">
+    <div className="flex items-center gap-10 p-4 ">
     <span className="">total: </span>{" "}
     <span className="text-4xl">
       {calcTotalDifficulty(routine).toFixed(1)}
