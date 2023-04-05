@@ -8,7 +8,7 @@ function BtnTelClose({title, showRoutine, setShowRoutine}: Props) {
     onClick={() => {
       setShowRoutine(!showRoutine);
     }}
-    className=" absolute top-4 right-4 py-2 px-12 flex items-center justify-center gap-1  rounded-lg bg-gradient-to-r from-rose-500 via-red-400 to-red-500 text-white backdrop-blur-lg shadow-md uppercase"
+    className="  py-2 px-12 flex items-center justify-center gap-1  rounded-lg bg-gradient-to-r from-purple-800 via-violet-900 to-purple-800 text-white backdrop-blur-lg shadow-md uppercase"
   >
   {title}
     <svg

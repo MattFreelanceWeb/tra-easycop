@@ -23,13 +23,27 @@ function ScreenRoutine({
   setSkill,
 }: Props) {
   return (
-    <div className={`h-full w-full relative grid grid-rows-6 place-items-center`}>
-      <BtnTelClose
-        title={"close"}
-        setShowRoutine={setShowRoutine}
-        showRoutine={showRoutine}
-      />
-      <ul className="w-full flex flex-col items-center justify-center gap-2  row-span-5 md:px-32">
+    <div
+      className={`h-full w-full relative flex flex-col gap-4 items-center justify-center pt-2 `}
+    >
+      <div className="w-full  px-4  md:px-32 flex-grow">
+        <div className="w-full h-10 grid grid-cols-2 gap-2 mt-10">
+          <BtnTelResetRoutine
+            title={"Reset"}
+            setKey={""}
+            setRoutine={setRoutine}
+            setPosition={setPosition}
+            setSkill={setSkill}
+          />
+          <BtnTelClose
+            title={"close"}
+            setShowRoutine={setShowRoutine}
+            showRoutine={showRoutine}
+          />
+        </div>
+      </div>
+
+      <ul className="w-full flex flex-col items-center justify-start gap-2 md:px-32 flex-grow">
         <li className="w-full flex items-center justify-between pr-8 px-4">
           <p>Skill:</p>
           <p className="-translate-x-6">Position:</p>
@@ -56,18 +70,12 @@ function ScreenRoutine({
             </div>
           </li>
         ))}
-        <li>
+        <li className="w-full flex items-center justify-end">
           <TotalRoutine routine={routine} />
         </li>
       </ul>
-      <div className="w-full px-4 h-10 md:px-32 row-span-1">
-        <BtnTelResetRoutine
-          title={"Reset"}
-          setKey={""}
-          setRoutine={setRoutine}
-          setPosition={setPosition}
-          setSkill={setSkill}
-        />
+      <div className="">
+        
       </div>
     </div>
   );
