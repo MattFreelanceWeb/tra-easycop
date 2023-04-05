@@ -13,8 +13,6 @@ function ActualSkill({ skill, position }: Props) {
         <p className="border-b-2 border-blue-500 py-4">
           position: <br /> {position ? position : "straight"}
         </p>
-      </div>
-      <div className="w-full">
         <p className="border-b-2 border-blue-500 py-4">
           difficulty: <br /> {calc(Number(skill), position)}
         </p>

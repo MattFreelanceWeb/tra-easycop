@@ -29,7 +29,7 @@ function KeyboardTel({
   setShowRoutine
 }: Props) {
   return (
-    <div className="w-full  grid grids-row-6 grid-cols-3 gap-2 p-4 ">
+    <div className="h-full w-full  grid grids-row-6 grid-cols-3 gap-2 p-4 ">
       <BtnTelResetRoutine
         title={"Reset"}
         setKey={"Space"}
