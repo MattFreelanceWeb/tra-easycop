@@ -8,7 +8,7 @@ function TelCalculator({}: Props) {
   const [position, setPosition] = useState<string>("");
   const [skill, setSkill] = useState<string>("");
   const [routine, setRoutine] = useState<any[]>([]);
-  const [watchRoutine, setWatchRoutine] = useState<boolean>(false);
+  const [showRoutine, setShowRoutine] = useState<boolean>(false);
 
   return (
     <section className="h-full w-full grid grid-rows-2 backdrop-blur-md bg-gradient-to-r from-gray-100 to-gray-300 ">
@@ -27,6 +27,8 @@ function TelCalculator({}: Props) {
         setRoutine={setRoutine}
         setSkill={setSkill}
         setPosition={setPosition}
+        showRoutine={showRoutine}
+        setShowRoutine={setShowRoutine}
       />
     </section>
   );

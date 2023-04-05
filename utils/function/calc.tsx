@@ -6,7 +6,6 @@ export const calc = (numericValue: number, position: string) => {
   let bonus: number = 0;
   let difficulty: number = 0;
 
-  console.log("length:", numberString.length);
 
   switch (numberString.length) {
     //pas de tour complet

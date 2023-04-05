@@ -14,6 +14,8 @@ type Props = {
   setPosition: Function;
   routine: any[];
   setRoutine: Function;
+  showRoutine:boolean;
+  setShowRoutine:Function
 };
 
 function KeyboardTel({
@@ -23,6 +25,8 @@ function KeyboardTel({
   setPosition,
   routine,
   setRoutine,
+  showRoutine,
+  setShowRoutine
 }: Props) {
   return (
     <div className="w-full  grid grids-row-6 grid-cols-3 gap-2 p-4 ">
@@ -39,7 +43,7 @@ function KeyboardTel({
         setSkill={setSkill}
         setPosition={setPosition}
       />
-      <BtnTelShowRoutine title={'Routine'} />
+      <BtnTelShowRoutine title={'Routine'} showRoutine={showRoutine} setShowRoutine={setShowRoutine} />
       <BtnTelPosition
         title={"tuck"}
         setKey={"/"}
