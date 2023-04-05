@@ -19,6 +19,9 @@ function TelCalculator({}: Props) {
             setShowRoutine={setShowRoutine}
             showRoutine={showRoutine}
             routine={routine}
+            setRoutine={setRoutine}
+            setSkill={setSkill}
+            setPosition={setPosition}
           />
         </>
       ) : (
