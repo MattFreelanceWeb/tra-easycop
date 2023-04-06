@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 type Props = { i:number, routine:any[], setRoutine:Function};
 
 function BtnTelDeleteSkillRoutine({ i, routine, setRoutine}: Props) {
-  const [toggle, setToggle] = useState<boolean>(false)
 
   const DeletSkill = () => {
     const newRoutine = [...routine]
