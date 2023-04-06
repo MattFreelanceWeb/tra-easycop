@@ -13,7 +13,7 @@ function TelCalculator({}: Props) {
 
 
   return (
-    <section className={`h-full w-full max-w-4xl max-h-[914px] grid backdrop-blur-md bg-gradient-to-r from-gray-100 to-gray-300 ${showRoutine ? '': 'grid-rows-2 sm:grid-rows-1 sm:grid-cols-2'} overflow-y-auto`}>
+    <section className={`h-full w-full max-w-4xl md:max-h-[414px] grid backdrop-blur-md bg-gradient-to-r from-gray-100 to-gray-300 ${showRoutine ? '': 'grid-rows-2 sm:grid-rows-1 sm:grid-cols-2'} overflow-y-auto md:rounded-md md:shadow-lg`}>
       {showRoutine ? (
         <>
           <ScreenRoutine

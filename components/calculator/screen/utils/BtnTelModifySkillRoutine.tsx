@@ -63,7 +63,7 @@ function BtnTelModifySkillRoutine({ item, i, routine, setRoutine }: Props) {
           >
             {" "}
           </div>
-          <div className=" z-50 bg-white h-1/2 w-full rounded-md shadow-lg flex flex-col items-center justify-center p-4 relative">
+          <div className=" z-50 bg-white h-3/4 w-3/4 rounded-md shadow-lg flex flex-col items-center justify-center p-4  fixed ">
             <button
               onClick={() => {
                 setToggle(!toggle);

@@ -23,21 +23,21 @@ function BtnTelResetRoutine({
       setSkill("");
     }
   };
-  useEffect(() => {
-    {
-      /* on the keypress define in the prop setKey lunch the onClick event*/
-    }
-    const handleKeyPress = (event: any) => {
-      if (event.code === setKey) {
-        btnRef.current.click();
-      }
-    };
+  // useEffect(() => {
+  //   {
+  //     /* on the keypress define in the prop setKey lunch the onClick event*/
+  //   }
+  //   const handleKeyPress = (event: any) => {
+  //     if (event.code === setKey) {
+  //       btnRef.current.click();
+  //     }
+  //   };
 
-    document.addEventListener("keydown", handleKeyPress);
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [setKey]);
+  //   document.addEventListener("keydown", handleKeyPress);
+  //   return () => {
+  //     document.removeEventListener("keydown", handleKeyPress);
+  //   };
+  // }, [setKey]);
   return (
     <button
       ref={btnRef}
