@@ -2,19 +2,25 @@ import React, { useEffect, useRef } from "react";
 
 type Props = {
   title: string;
-  setKey:string
+  setKey: string;
   setSkill: Function;
   setPosition: Function;
   setRoutine: Function;
 };
 
-function BtnTelResetRoutine({ title ,setKey,setRoutine, setPosition, setSkill}: Props) {
-  const btnRef:any = useRef()
+function BtnTelResetRoutine({
+  title,
+  setKey,
+  setRoutine,
+  setPosition,
+  setSkill,
+}: Props) {
+  const btnRef: any = useRef();
   const reset = () => {
     if (window.confirm("WARNING ! you are about to reset the routine")) {
-      setRoutine([])
-      setPosition('')
-      setSkill('')
+      setRoutine([]);
+      setPosition("");
+      setSkill("");
     }
   };
   useEffect(() => {
@@ -34,7 +40,7 @@ function BtnTelResetRoutine({ title ,setKey,setRoutine, setPosition, setSkill}: 
   }, [setKey]);
   return (
     <button
-    ref={btnRef}
+      ref={btnRef}
       onClick={() => {
         reset();
       }}

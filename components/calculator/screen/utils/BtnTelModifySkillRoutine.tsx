@@ -1,10 +1,10 @@
 import React from "react";
 
-type Props = {};
+type Props = {item:object,i:number, routine:any[], setRoutine:Function};
 
-function BtnTelModifySkillRoutine({}: Props) {
+function BtnTelModifySkillRoutine({item, i, routine, setRoutine}: Props) {
   return (
-    <button className="p-1 flex flex-col justify-center items-center gap-1 rounded-lg text-white bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 backdrop-blur-lg shadow-md ">
+    <button onClick={()=>{ console.log(item, i) }} className="p-1 flex flex-col justify-center items-center gap-1 rounded-lg text-white bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 backdrop-blur-lg shadow-md ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

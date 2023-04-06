@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
-type Props = {};
+type Props = { i:number, routine:any[], setRoutine:Function};
 
-function BtnTelDeleteSkillRoutine({}: Props) {
+function BtnTelDeleteSkillRoutine({ i, routine, setRoutine}: Props) {
+  const [toggle, setToggle] = useState<boolean>(false)
+
+  const DeletSkill = () => {
+    const newRoutine = [...routine]
+    newRoutine.splice(i,1)
+    setRoutine(newRoutine)
+  }
+  
+
   return (
-    <button className=" p-1 flex items-center justify-center gap-1 rounded-lg bg-gradient-to-r from-rose-500 via-red-400 to-red-500 text-white backdrop-blur-lg shadow-md uppercase">
+    <button onClick={()=>{DeletSkill()}} className=" p-1 flex items-center justify-center gap-1 rounded-lg bg-gradient-to-r from-rose-500 via-red-400 to-red-500 text-white backdrop-blur-lg shadow-md uppercase">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

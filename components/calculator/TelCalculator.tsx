@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import ScreenTel from "./screen/ScreenTel";
 import KeyboardTel from "./keyboard/KeyboardTel";
 import ScreenRoutine from "./screen/ScreenRoutine";
@@ -10,6 +10,7 @@ function TelCalculator({}: Props) {
   const [skill, setSkill] = useState<string>("");
   const [routine, setRoutine] = useState<any[]>([]);
   const [showRoutine, setShowRoutine] = useState<boolean>(false);
+
 
   return (
     <section className={`h-full w-full max-w-4xl max-h-[914px] grid backdrop-blur-md bg-gradient-to-r from-gray-100 to-gray-300 ${showRoutine ? '': 'grid-rows-2 sm:grid-rows-1 sm:grid-cols-2'} overflow-y-auto`}>

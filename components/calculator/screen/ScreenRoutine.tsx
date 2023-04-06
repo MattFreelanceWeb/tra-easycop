@@ -22,19 +22,23 @@ function ScreenRoutine({
   setPosition,
   setSkill,
 }: Props) {
+
+
+  
   return (
     <div
       className={`h-full w-full relative flex flex-col gap-4 items-center justify-center pt-2 `}
     >
       <div className="w-full  px-4  md:px-32 flex-grow">
-        <div className="w-full h-10 grid grid-cols-2 gap-2 mt-10">
-          <BtnTelResetRoutine
+        <div className={`w-full h-10 grid  gap-2 mt-10 ${routine.length >= 1 ? 'grid-cols-2' : '' }`}>
+          {routine.length >= 1 &&           <BtnTelResetRoutine
             title={"Reset"}
             setKey={""}
             setRoutine={setRoutine}
             setPosition={setPosition}
             setSkill={setSkill}
-          />
+          />}
+
           <BtnTelClose
             title={"close"}
             setShowRoutine={setShowRoutine}
@@ -49,9 +53,9 @@ function ScreenRoutine({
           <p className="-translate-x-6">Position:</p>
           <p className="-translate-x-16">Difficulty:</p>
         </li>
-        {routine.map((item, i) => (
+        {routine.map((item,i) => (
           <li
-            key={i}
+            key={crypto.randomUUID()}
             className={`flex w-full items-center justify-between px-4 gap-2 `}
           >
             <div
@@ -65,8 +69,8 @@ function ScreenRoutine({
               <p>{item.difficulty}</p>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <BtnTelModifySkillRoutine />
-              <BtnTelDeleteSkillRoutine />
+              <BtnTelModifySkillRoutine item={item} i={i} routine={routine} setRoutine={setRoutine}/>
+              <BtnTelDeleteSkillRoutine i={i} routine={routine} setRoutine={setRoutine}/>
             </div>
           </li>
         ))}
