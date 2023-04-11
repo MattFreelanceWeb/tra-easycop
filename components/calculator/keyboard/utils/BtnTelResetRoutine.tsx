@@ -23,6 +23,7 @@ function BtnTelResetRoutine({
       setSkill("");
     }
   };
+  // create bug that make complicate to modify the skill in the routine because of the keypress
   // useEffect(() => {
   //   {
   //     /* on the keypress define in the prop setKey lunch the onClick event*/
