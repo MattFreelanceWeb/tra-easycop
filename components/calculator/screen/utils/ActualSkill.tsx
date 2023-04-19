@@ -1,7 +1,10 @@
 import React from "react";
 import { calc } from "@/utils/function/calc";
+import { namePosition } from "@/utils/function/namePosition";
 
 type Props = { skill: string; position: string };
+
+
 
 function ActualSkill({ skill, position }: Props) {
   return (
@@ -11,7 +14,7 @@ function ActualSkill({ skill, position }: Props) {
           numeric value: <br /> {skill ? skill : "00"}
         </p>
         <p className="border-b-2 border-blue-500 py-4">
-          position: <br /> {position ? position : "straight"}
+          position: <br /> {position} {namePosition(position)}
         </p>
         <p className="border-b-2 border-blue-500 py-4">
           difficulty: <br /> {calc(Number(skill), position)}

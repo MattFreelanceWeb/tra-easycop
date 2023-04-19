@@ -45,19 +45,19 @@ function KeyboardTel({
       />
       <BtnTelShowRoutine title={'Routine'} showRoutine={showRoutine} setShowRoutine={setShowRoutine} />
       <BtnTelPosition
-        title={"tuck"}
+        title={"°"}
         setKey={"/"}
         setPosition={setPosition}
         className={"bg-stone-400"}
       />
       <BtnTelPosition
-        title={"pike"}
+        title={"<"}
         setKey={"*"}
         setPosition={setPosition}
         className={"bg-stone-500"}
       />
       <BtnTelPosition
-        title={"straigt"}
+        title={"/"}
         setKey={"-"}
         setPosition={setPosition}
         className={"bg-stone-600"}
