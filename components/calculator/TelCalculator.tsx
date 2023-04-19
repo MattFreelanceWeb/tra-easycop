@@ -6,7 +6,7 @@ import ScreenRoutine from "./screen/ScreenRoutine";
 type Props = {};
 
 function TelCalculator({}: Props) {
-  const [position, setPosition] = useState<string>("");
+  const [position, setPosition] = useState<string>("/");
   const [skill, setSkill] = useState<string>("");
   const [routine, setRoutine] = useState<any[]>([]);
   const [showRoutine, setShowRoutine] = useState<boolean>(false);

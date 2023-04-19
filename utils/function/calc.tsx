@@ -6,6 +6,7 @@ export const calc = (numericValue: number, position: string) => {
   let bonus: number = 0;
   let difficulty: number = 0;
 
+  const positionWithoutBonus = '°'
 
   switch (numberString.length) {
     //pas de tour complet
@@ -17,7 +18,7 @@ export const calc = (numericValue: number, position: string) => {
     case 2:
       numberTurn = Number(numberString[0]);
       numberTwist = Number(numberString[1]);
-      if (position === "tuck") {
+      if (position === positionWithoutBonus) {
         bonus = 1;
       } else {
         bonus = 2;
@@ -34,13 +35,13 @@ export const calc = (numericValue: number, position: string) => {
     case 3:
       numberTurn = Number(numberString[0]);
       numberTwist = Number(numberString[1]) + Number(numberString[2]);
-      if (position === "tuck") {
+      if (position === positionWithoutBonus) {
         bonus = 2;
       } else {
         bonus = 4;
       }
       if (numberTurn < 8) {
-        if (position === "tuck") {
+        if (position === positionWithoutBonus) {
           bonus = 1;
         } else {
           bonus = 2;
@@ -58,13 +59,13 @@ export const calc = (numericValue: number, position: string) => {
         Number(numberString[2]) +
         Number(numberString[3]) +
         Number(numberString[4]);
-      if (position === "tuck") {
+      if (position === positionWithoutBonus) {
         bonus = 4;
       } else {
         bonus = 7;
       }
       if (numberTurn < 12) {
-        if (position === "tuck") {
+        if (position === positionWithoutBonus) {
           bonus = 2;
         } else {
           bonus = 4;
@@ -79,13 +80,13 @@ export const calc = (numericValue: number, position: string) => {
         Number(numberString[3]) +
         Number(numberString[4]) +
         Number(numberString[5]);
-      if (position === "tuck") {
+      if (position === positionWithoutBonus) {
         bonus = 6;
       } else {
         bonus = 10;
       }
       if (numberTurn < 16) {
-        if (position === "tuck") {
+        if (position === positionWithoutBonus) {
           bonus = 4;
         } else {
           bonus = 7;

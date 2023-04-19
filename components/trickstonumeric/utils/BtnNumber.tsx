@@ -56,6 +56,7 @@ function BtnNumber({ number, setNumber, maxNumber }: Props) {
           </svg>
         </button>
       )}
+      <button onClick={()=>{setNumber(0)}}>reset</button>
     </div>
   );
 }
