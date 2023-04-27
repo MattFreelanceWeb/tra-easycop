@@ -62,7 +62,8 @@ function WebcamCapture({}: Props) {
           className=" absolute "
         />
         {/* <canvas ref={canvaRef} className="border-2 border-red-500 absolute w-[640px] h-[480px]"></canvas> */}
-        <Draw2dCanvas posenetPoses={posenetPoses} />
+        {/* <Draw2dCanvas posenetPoses={posenetPoses} /> */}
+  
         {/* <Skeleton posenetPoses={posenetPoses} /> */}
         <button
           onClick={() => {
@@ -73,6 +74,7 @@ function WebcamCapture({}: Props) {
           {` Posenet active : ${togglePosenet}`}{" "}
         </button>
       </div>
+      
       <ShowPosition posenetPoses={posenetPoses}/>
     </div>
   );

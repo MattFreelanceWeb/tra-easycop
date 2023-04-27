@@ -1,4 +1,5 @@
 import { angleCalc, definePostionFromAngle } from '@/utils/function/angleCalc'
+import { quarterTurnCalc } from '@/utils/function/quarterTurnCalc'
 import React, { useEffect, useState } from 'react'
 
 type Props = {posenetPoses: any | null }
@@ -30,6 +31,7 @@ function ShowPosition({posenetPoses}: Props) {
         
           setAngleShoulderHipsKneeRight(angleCalc(shoulderRight, hipsRight, kneeRight))
           setAngleHipsKneeAnkleRight(angleCalc(hipsRight, kneeRight, ankleRight))
+
         
         setPositionFromAngle(definePostionFromAngle( angleShoulderHipsKneeLeft, angleHipsKneeAnkleLeft ,angleShoulderHipsKneeRight, angleHipsKneeAnkleRight ))
         }
@@ -41,6 +43,7 @@ function ShowPosition({posenetPoses}: Props) {
     <p>position :{positionFromAngle} </p>
     <p>angle Hips : {angleShoulderHipsKneeLeft} </p>
     <p>angle Knee : {angleHipsKneeAnkleLeft} </p>
+    <p>quarterTurn : <>{ posenetPoses && quarterTurnCalc(posenetPoses[0].keypoints[5], posenetPoses[0].keypoints[11]) }</></p>
   </div>
   )
 }

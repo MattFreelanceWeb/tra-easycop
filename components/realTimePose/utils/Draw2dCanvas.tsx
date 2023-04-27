@@ -85,7 +85,7 @@ function Draw2dCanvas({ posenetPoses }: Props) {
   return (
     <canvas
       ref={canvasRef}
-      className="border-2 border-red-500 absolute w-[640px] h-[480px]"
+      className="border-2 border-red-500 absolute w-[640px] h-[480px] z-50"
     ></canvas>
   );
 }
