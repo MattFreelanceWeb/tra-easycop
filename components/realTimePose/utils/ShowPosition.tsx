@@ -22,7 +22,7 @@ function ShowPosition({ posenetPoses }: Props) {
   const [quarterThree, setQuarterThree] = useState<Boolean>(false);
   const [quarterFour, setQuarterFour] = useState<Boolean>(false);
 
-  const [quarterTurnNumber, setQuarterTurnNumber] = useState<Number>(0)
+  const [quarterTurnNumber, setQuarterTurnNumber] = useState<Number>(0);
 
   const validateQuarter = (actualQuarter: Number) => {
     switch (actualQuarter) {
@@ -90,7 +90,7 @@ function ShowPosition({ posenetPoses }: Props) {
       quarterThree && Arr.push(quarterThree);
       quarterFour && Arr.push(quarterFour);
 
-      setQuarterTurnNumber(Arr.length)
+      setQuarterTurnNumber(Arr.length);
     }
   }, [
     posenetPoses,
@@ -111,17 +111,25 @@ function ShowPosition({ posenetPoses }: Props) {
   const showQuarterTun = () => {
     if (posenetPoses) {
       if (posenetPoses[0]) {
-        return <p>quarterTurn :{`${quarterTurnNumber}`}</p>;
+        return quarterTurnNumber;
       }
     }
   };
 
   return (
-    <div className="text-xl text-red-500 py-12  grid place-items-center">
-      <p>position :{positionFromAngle} </p>
-      <p>angle Hips : {angleShoulderHipsKneeLeft} </p>
-      <p>angle Knee : {angleHipsKneeAnkleLeft} </p>
-      {showQuarterTun()}
+    <div className="text-xl text-red-500 py-12 flex items-center justify-center gap-12">
+      <div className="flex flex-col items-center justify-center">
+        <p>position :{positionFromAngle} </p>
+        <p>angle Hips : {angleShoulderHipsKneeLeft} </p>
+        <p>angle Knee : {angleHipsKneeAnkleLeft} </p>
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <p>quarterOne: {`${quarterOne}`}</p>
+        <p>quarterTwo: {`${quarterTwo}`}</p>
+        <p>quarterThree: {`${quarterThree}`}</p>
+        <p>quarterFour: {`${quarterFour}`}</p>
+        <p>quarter turn number : {`${showQuarterTun()}`}</p>
+      </div>
     </div>
   );
 }

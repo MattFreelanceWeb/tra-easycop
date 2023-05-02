@@ -57,8 +57,8 @@ function WebcamCapture({}: Props) {
   
 
   return (
-    <div className="w-full h-full flex gap-4">
-      <div className="relative flex w-full h-full bg-gray-500 items-center justify-center py-10">
+    <div className="w-full h-full flex flex-col gap-4">
+      <div className="relative flex  w-full h-full bg-gray-500 items-center justify-center py-10">
         <Webcam
           audio={false}
           ref={webcamRef}
