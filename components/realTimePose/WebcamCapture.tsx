@@ -58,7 +58,7 @@ function WebcamCapture({}: Props) {
 
   return (
     <div className="w-full h-full flex flex-col gap-4">
-      <div className="relative flex  w-full h-full bg-gray-500 items-center justify-center py-10">
+      <div className="relative flex flex-col w-full h-full bg-gray-500 items-center justify-center py-10">
         <Webcam
           audio={false}
           ref={webcamRef}
@@ -71,7 +71,7 @@ function WebcamCapture({}: Props) {
           onClick={() => {
             setTogglePosenet(!togglePosenet);
           }}
-          className="self-end border-2 border-red-500 px-12 py-2 rounded-lg active:scale-95 duration-100"
+          className="absolute top-4 right-4 bg-red-500 text-white border-2 border-red-500 px-12 py-2 rounded-lg active:scale-95 duration-100"
         >
           {` Posenet active : ${togglePosenet}`}{" "}
         </button>
