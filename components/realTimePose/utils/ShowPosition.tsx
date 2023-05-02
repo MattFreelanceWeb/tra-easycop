@@ -17,6 +17,30 @@ function ShowPosition({ posenetPoses }: Props) {
   const [angleHipsKneeAnkleRight, setAngleHipsKneeAnkleRight] =
     useState<number>(0);
 
+  const [quarterOne, setQuarterOne] = useState<Boolean>(false);
+  const [quarterTwo, setQuarterTwo] = useState<Boolean>(false);
+  const [quarterThree, setQuarterThree] = useState<Boolean>(false);
+  const [quarterFour, setQuarterFour] = useState<Boolean>(false);
+
+  const [quarterTurnNumber, setQuarterTurnNumber] = useState<Number>(0)
+
+  const validateQuarter = (actualQuarter: Number) => {
+    switch (actualQuarter) {
+      case 1:
+        setQuarterOne(true);
+        break;
+      case 2:
+        setQuarterTwo(true);
+        break;
+      case 3:
+        setQuarterThree(true);
+        break;
+      case 4:
+        setQuarterFour(true);
+        break;
+    }
+  };
+
   useEffect(() => {
     if (posenetPoses) {
       if (posenetPoses[0]) {
@@ -48,7 +72,25 @@ function ShowPosition({ posenetPoses }: Props) {
             angleHipsKneeAnkleRight
           )
         );
+
+        validateQuarter(
+          quarterTurnCalc(
+            posenetPoses[0].keypoints[11],
+            posenetPoses[0].keypoints[23],
+            posenetPoses[0].keypoints[12],
+            posenetPoses[0].keypoints[24]
+          )
+        );
       }
+
+      const Arr = [];
+
+      quarterOne && Arr.push(quarterOne);
+      quarterTwo && Arr.push(quarterTwo);
+      quarterThree && Arr.push(quarterThree);
+      quarterFour && Arr.push(quarterFour);
+
+      setQuarterTurnNumber(Arr.length)
     }
   }, [
     posenetPoses,
@@ -56,16 +98,30 @@ function ShowPosition({ posenetPoses }: Props) {
     angleShoulderHipsKneeLeft,
     angleHipsKneeAnkleRight,
     angleShoulderHipsKneeRight,
+    quarterOne,
+    quarterTwo,
+    quarterThree,
+    quarterFour,
     setAngleHipsKneeAnkleLeft,
     setAngleShoulderHipsKneeLeft,
     setAngleHipsKneeAnkleRight,
     setAngleShoulderHipsKneeRight,
   ]);
+
+  const showQuarterTun = () => {
+    if (posenetPoses) {
+      if (posenetPoses[0]) {
+        return <p>quarterTurn :{`${quarterTurnNumber}`}</p>;
+      }
+    }
+  };
+
   return (
     <div className="text-xl text-red-500 py-12  grid place-items-center">
       <p>position :{positionFromAngle} </p>
       <p>angle Hips : {angleShoulderHipsKneeLeft} </p>
       <p>angle Knee : {angleHipsKneeAnkleLeft} </p>
+      {showQuarterTun()}
     </div>
   );
 }
