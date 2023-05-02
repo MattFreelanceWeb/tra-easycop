@@ -43,7 +43,7 @@ function ShowPosition({posenetPoses}: Props) {
     <p>position :{positionFromAngle} </p>
     <p>angle Hips : {angleShoulderHipsKneeLeft} </p>
     <p>angle Knee : {angleHipsKneeAnkleLeft} </p>
-    <p>quarterTurn : <>{ posenetPoses && quarterTurnCalc(posenetPoses[0].keypoints[5], posenetPoses[0].keypoints[11]) }</></p>
+    <p>quarterTurn : <>{ posenetPoses && quarterTurnCalc(posenetPoses[0].keypoints[5], posenetPoses[0].keypoints[11],posenetPoses[0].keypoints[6], posenetPoses[0].keypoints[12]) }</></p>
   </div>
   )
 }
