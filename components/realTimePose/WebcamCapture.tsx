@@ -118,7 +118,7 @@ function WebcamCapture({}: Props) {
         </button>
       </div>
 
-      {/* <ShowPosition posenetPoses={posenetPoses}/> */}
+      <ShowPosition posenetPoses={posenetPoses}/>
     </div>
   );
 }

@@ -14,20 +14,23 @@ function ShowPosition({posenetPoses}: Props) {
   const [angleHipsKneeAnkleRight, setAngleHipsKneeAnkleRight] = useState<number>(0)
 
     useEffect(() => {
+      
+      // crash  quand keypoint == unedfined à fix
+
         if( posenetPoses ){
         
-          let shoulderLeft = posenetPoses[0].keypoints[6]
-          let hipsLeft = posenetPoses[0].keypoints[12]
-          let kneeLeft = posenetPoses[0].keypoints[14]
-          let ankleLeft = posenetPoses[0].keypoints[16]
+          let shoulderLeft = posenetPoses[0].keypoints[12]
+          let hipsLeft = posenetPoses[0].keypoints[24]
+          let kneeLeft = posenetPoses[0].keypoints[26]
+          let ankleLeft = posenetPoses[0].keypoints[28]
         
           setAngleShoulderHipsKneeLeft(angleCalc(shoulderLeft, hipsLeft, kneeLeft))
           setAngleHipsKneeAnkleLeft(angleCalc(hipsLeft, kneeLeft, ankleLeft))
         
-          let shoulderRight = posenetPoses[0].keypoints[5]
-          let hipsRight = posenetPoses[0].keypoints[11]
-          let kneeRight = posenetPoses[0].keypoints[13]
-          let ankleRight = posenetPoses[0].keypoints[15]
+          let shoulderRight = posenetPoses[0].keypoints[11]
+          let hipsRight = posenetPoses[0].keypoints[23]
+          let kneeRight = posenetPoses[0].keypoints[25]
+          let ankleRight = posenetPoses[0].keypoints[27]
         
           setAngleShoulderHipsKneeRight(angleCalc(shoulderRight, hipsRight, kneeRight))
           setAngleHipsKneeAnkleRight(angleCalc(hipsRight, kneeRight, ankleRight))
@@ -43,7 +46,6 @@ function ShowPosition({posenetPoses}: Props) {
     <p>position :{positionFromAngle} </p>
     <p>angle Hips : {angleShoulderHipsKneeLeft} </p>
     <p>angle Knee : {angleHipsKneeAnkleLeft} </p>
-    <p>quarterTurn : <>{ posenetPoses && quarterTurnCalc(posenetPoses[0].keypoints[5], posenetPoses[0].keypoints[11],posenetPoses[0].keypoints[6], posenetPoses[0].keypoints[12]) }</></p>
   </div>
   )
 }
