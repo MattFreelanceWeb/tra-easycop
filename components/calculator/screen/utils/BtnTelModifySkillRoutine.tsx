@@ -105,9 +105,9 @@ function BtnTelModifySkillRoutine({ item, i, routine, setRoutine }: Props) {
                   setNewPosition(e.target.value);
                 }}
               >
-                <option value="tuck">tuck °</option>
-                <option value="pike">pike{"<"}</option>
-                <option value="straight">straight {"/"}</option>
+                <option value="°">{' tuck °'}</option>
+                <option value="<">{'pike <'}</option>
+                <option value="/">{'straight /'}</option>
               </select>
               <div className="w-full flex items-center justify-between px-1">
                 <span> Difficulty: </span>
